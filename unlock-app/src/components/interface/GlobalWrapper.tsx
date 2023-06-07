@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 import { WedlockServiceContext } from '../../contexts/WedlocksContext'
 import WedlockService from '../../services/wedlockService'
 import { ConfigContext } from '../../utils/withConfig'
@@ -10,7 +10,7 @@ import { UnlockUIProvider } from '@unlock-protocol/ui'
 import NextLink from 'next/link'
 const wedlockService = new WedlockService(config.services.wedlocks.host)
 interface GlobalWrapperProps {
-  children: ReactNode
+  children: ReactElement
 }
 
 export const GlobalWrapper = ({ children }: GlobalWrapperProps) => {

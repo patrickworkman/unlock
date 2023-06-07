@@ -26,10 +26,12 @@ const UnlockApp = ({ Component }: AppProps) => {
       <SessionProvider>
         <ConnectModalProvider>
           <GlobalWrapper>
-            <ErrorBoundary fallback={(props) => <ErrorFallback {...props} />}>
-              <Component />
-            </ErrorBoundary>
-            <Toaster />
+            <>
+              <ErrorBoundary fallback={(props) => <ErrorFallback {...props} />}>
+                <Component />
+              </ErrorBoundary>
+              <Toaster />
+            </>
           </GlobalWrapper>
         </ConnectModalProvider>
       </SessionProvider>
