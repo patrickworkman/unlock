@@ -63,6 +63,20 @@ services:
         BUILD_DIR: unlock-protocol-com
     ports:
       - 3002:3002
+  docs:
+    # Container for the static site
+    env_file:
+      - ./${UNLOCK_ENV}.env
+    image: docs
+    build:
+      context: ../
+      target: dev
+      cache_from:
+        - unlockprotocol/unlock-dev
+      args:
+        BUILD_DIR: docs
+    ports:
+      - 3003:3003
 
   paywall-app:
     # Container for the paywall application
@@ -237,7 +251,7 @@ services:
     build:
       context: ./development
       dockerfile: subgraph.dockerfile
-    command: ['node', './deploy-subgraph.js']
+    command: [ 'node', './deploy-subgraph.js' ]
     depends_on:
       - ipfs
       - postgres

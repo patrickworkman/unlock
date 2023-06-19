@@ -10,7 +10,7 @@ APP_PATH=$1
 DEPLOY_ENV=$2 #ignored in this script since unlock-protocol.com is always deployed to production
 COMMIT=$3
 PUBLISH=$4
-BUILD_PATH="out/"
+BUILD_PATH="build/"
 
 # unlock-protocol.com is always deployed to production
 DEPLOY_ENV="prod"
@@ -26,8 +26,6 @@ else
 fi
 
 if [ -n "$SITE_ID" ] && [ -n "$AUTH_TOKEN" ]; then
-    # Package
-    UNLOCK_ENV="$DEPLOY_ENV" yarn deploy
     # And ship!
     echo $MESSAGE
     npx -y netlify-cli deploy --build -s $SITE_ID -a $AUTH_TOKEN --dir=$BUILD_PATH $PROD --message="$MESSAGE"
