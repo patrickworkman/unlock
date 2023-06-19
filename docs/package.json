@@ -29,7 +29,8 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve --port 3003",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "ci": "yarn build"
   },
   "browserslist": {
     "production": [
